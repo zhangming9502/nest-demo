@@ -99,7 +99,12 @@ CREATE TABLE `admin_user` (
   PRIMARY KEY (`user_id`), KEY `idx_m` (`mobile`)
   ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='后台用户表';
 ```
-
+市面上有很多连接数据库的工具，笔者这里使用的是 Sequelize ，先安装依赖包：
+```cmd
+$ npm i sequelize sequelize-typescript mysql2 -S
+或
+$ yarn add sequelize sequelize-typescript mysql2 -S
+```
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
