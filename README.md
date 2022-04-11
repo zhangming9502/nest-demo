@@ -64,20 +64,25 @@ $ npm run test:cov
 - `Module`: 负责将 `Controller` 和 `Service` 连接起来，类似于 `namespace` 的概念；
 
 使用 nest-cli 提供的指令可以快速创建文件，语法如下：
-```js
+```cmd
 $ nest g [文件类型] [文件名] [文件目录（src目录下）]
 ```
 ### 1. Service
 我们输入：
-```js
+```cmd
  $ nest g service user logical
 ```
 就会发现 src 目录下多了 logical/user/ 文件夹（个人喜欢将业务逻辑相关的文件放入 logical）
 ### 2. Controller
 现在，我们来写控制器，输入下列命令：
-```js
+```cmd
 $ nest g controller user logical
 ```
+### 3. Module
+```cmd
+$ nest g module user logical
+```
+
 
 ## Support
 
