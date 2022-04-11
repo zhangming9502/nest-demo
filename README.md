@@ -57,6 +57,22 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+## 三、新增模块
+通过上文，应该熟悉了 NestJS 的设计模式，主要就是 Controller 、 Service 、 Module 共同努力，形成了一个模块。
+- `Controller` : 传统意义上的控制器，提供 api 接口，负责处理路由、中转、验证等一些简洁 的业务；
+- `Service`: 又称为 `Provider`， 是一系列服务、repo、工厂方法、helper 的总称，主要 负责处理具体的业务，如数据库的增删改查、事务、并发等逻辑代码；
+- `Module`: 负责将 `Controller` 和 `Service` 连接起来，类似于 `namespace` 的概念；
+
+使用 nest-cli 提供的指令可以快速创建文件，语法如下：
+```js
+$ nest g [文件类型] [文件名] [文件目录（src目录下）]
+```
+
+我们输入：
+```js
+ $ nest g service user logical
+```
+就会发现 src 目录下多了 logical/user/ 文件夹（个人喜欢将业务逻辑相关的文件放入 logical）
 
 ## Support
 
