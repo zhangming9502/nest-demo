@@ -67,12 +67,17 @@ $ npm run test:cov
 ```js
 $ nest g [文件类型] [文件名] [文件目录（src目录下）]
 ```
-
+### 1. Service
 我们输入：
 ```js
  $ nest g service user logical
 ```
 就会发现 src 目录下多了 logical/user/ 文件夹（个人喜欢将业务逻辑相关的文件放入 logical）
+### 2. Controller
+现在，我们来写控制器，输入下列命令：
+```js
+$ nest g controller user logical
+```
 
 ## Support
 
