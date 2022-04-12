@@ -117,6 +117,16 @@ $ yarn add passport passport-jwt passport-local @nestjs/passport @nestjs/jwt -S
 $ nest g service auth logical
 $ nest g module auth logical
 ```
+## 使用中间件、拦截器、过 滤器打造日志系统
+### 日志系统
+
+```cmd
+$ yarn add log4js stacktrace-js -S
+```
+### 制作中间件
+```cmd
+$ nest g middleware logger middleware
+```
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
