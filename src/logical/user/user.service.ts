@@ -14,6 +14,8 @@ export class UserService {
     SELECT
       user_id id,
       real_name realName,
+      password,
+      password_salt salt,
       role
     FROM
       admin_user
@@ -58,7 +60,7 @@ export class UserService {
     const hashPwd = encryptPassword(password, salt); // 加密密码
     const registerSQL = `
       INSERT INTO admin_user
-        (account_name, real_name, passwd, passwd_salt, mobile, user_status, role, create_by)
+        (account_name, real_name, password, password_salt, mobile, user_status, role, create_by)
       VALUES
         ('${accountName}', '${realName}', '${hashPwd}', '${salt}', '${mobile}', 1, 3, 0) `;
     try {

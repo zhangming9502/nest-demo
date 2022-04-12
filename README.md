@@ -87,8 +87,8 @@ CREATE TABLE `admin_user` (
   `user_id` smallint(6) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
   `account_name` varchar(24) NOT NULL COMMENT '用户账号',
   `real_name` varchar(20) NOT NULL COMMENT '真实姓名',
-  `passwd` char(32) NOT NULL COMMENT '密码',
-  `passwd_salt` char(6) NOT NULL COMMENT '密码盐',
+  `password` char(32) NOT NULL COMMENT '密码',
+  `password_salt` char(6) NOT NULL COMMENT '密码盐',
   `mobile` varchar(15) NOT NULL DEFAULT '0' COMMENT '手机号码',
   `role` tinyint(4) NOT NULL DEFAULT '3' COMMENT '用户角色：0-超级管理员|1-管理 员|2-开发&测试&运营|3-普通用户（只能查看）',
   `user_status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态：0-失效|1-有效|2-删 除',
@@ -104,6 +104,18 @@ CREATE TABLE `admin_user` (
 $ npm i sequelize sequelize-typescript mysql2 -S
 或
 $ yarn add sequelize sequelize-typescript mysql2 -S
+```
+
+## 三、JWT 的配置与验证
+### 1. 安装依赖包
+```cmd
+$ yarn add passport passport-jwt passport-local @nestjs/passport @nestjs/jwt -S
+```
+
+### 创建 Auth 模块
+```cmd
+$ nest g service auth logical
+$ nest g module auth logical
 ```
 ## Support
 
