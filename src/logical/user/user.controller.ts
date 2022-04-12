@@ -5,8 +5,12 @@ import { UserService } from './user.service';
 export class UserController {
   constructor(private readonly usersService: UserService) {}
 
-  @Post('find-one')
-  findOne(@Body() body: any) {
-    return this.usersService.findOne(body.username);
+  // @Post('find-one')
+  // findOne(@Body() body: any) {
+  //   return this.usersService.findOne(body.username);
+  // }
+  @Post('register')
+  async register(@Body() body: any) {
+    return await this.usersService.register(body);
   }
 }
