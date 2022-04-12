@@ -132,6 +132,15 @@ $ nest g middleware logger middleware
 ```cmd
 $ nest g interceptor transform interceptor
 ```
+### 初探过滤器
+
+```cmd
+ $ nest g filter http-exception filter
+```
+### 其他错误的捕获
+```cmd
+$ nest g filter any-exception filter
+```
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
