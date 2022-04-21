@@ -24,10 +24,11 @@ export class UserService {
     try {
       const user = (
         await sequelize.query(sql, {
-        type: Sequelize.QueryTypes.SELECT, // 查询方式
-        raw: true, // 是否使用数组组装的方式展示结果
-        logging: true, // 是否将 SQL 语句打印到控制台，默认为 true
-      }))[0];
+          type: Sequelize.QueryTypes.SELECT, // 查询方式
+          raw: true, // 是否使用数组组装的方式展示结果
+          logging: true, // 是否将 SQL 语句打印到控制台，默认为 true
+        })
+      )[0];
       // 若查不到用户，则 user === undefined
       return user;
     } catch (error) {

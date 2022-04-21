@@ -38,5 +38,4 @@ export class UserController {
   async register(@Body() body: any) {
     return await this.usersService.register(body);
   }
-
 }

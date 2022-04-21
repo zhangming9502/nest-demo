@@ -9,7 +9,7 @@ const sequelize = new Sequelize(
     // 自定义主机; 默认值: localhost
     host: db.mysql.host, // 数据库地址
     // 自定义端口; 默认值: 3306
-    port: (db.mysql.port as unknown as number),
+    port: db.mysql.port as unknown as number,
     dialect: 'mysql',
     pool: {
       max: db.mysql.connectionLimit, // 连接池中最大连接数量
@@ -32,4 +32,4 @@ sequelize
     console.error(err);
     throw err;
   });
-  export default sequelize;
+export default sequelize;
