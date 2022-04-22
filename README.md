@@ -141,6 +141,14 @@ $ nest g interceptor transform interceptor
 ```cmd
 $ nest g filter any-exception filter
 ```
+## 管道
+### 2. 创建管道
+```cmd
+$ nest g pipe validation pipe
+```
+```cmd
+$ yarn add class-validator class-transformer -S
+```
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
