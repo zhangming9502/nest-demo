@@ -4,7 +4,7 @@ const productConfig = {
     host: '数据库地址',
     user: '用户名',
     password: '密码',
-    database: 'nest-zero-to-one', // 库名
+    database: 'nest_zero_to_one', // 库名
     connectionLimit: 10, // 连接限制
   },
 };
@@ -14,7 +14,7 @@ const localConfig = {
     host: 'localhost',
     user: 'root',
     password: '123456',
-    database: 'nest-zero-to-one', // 库名
+    database: 'nest_zero_to_one', // 库名
     connectionLimit: 10, // 连接限制
   },
 };
