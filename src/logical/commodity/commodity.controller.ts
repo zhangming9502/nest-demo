@@ -1,4 +1,11 @@
-import { Controller, Request, Post, Body, UseGuards, UseInterceptors, } from '@nestjs/common';
+import {
+  Controller,
+  Request,
+  Post,
+  Body,
+  UseGuards,
+  UseInterceptors,
+} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { CommodityService } from './commodity.service';
 import { RbacInterceptor } from '../../interceptor/rbac.interceptor';
@@ -21,7 +28,7 @@ export class CommodityController {
   // @UseInterceptors(new RbacInterceptor(role.DEVELOPER))
   @Post('create')
   async createCommodity(@Body() body: any, @Request() req: any) {
-    console.log(req.user, 'req.user.username')
+    console.log(req.user, 'req.user.username');
     return await this.commodityService.createCommodity(body, req.user.username);
   }
   // 修改商品

@@ -13,7 +13,8 @@ export class CommodityService {
    */
   async queryCommodityList(body: any): Promise<any> {
     const { pageIndex = 1, pageSize = 10, keywords = '' } = body; // 分页查询条件
-    const currentIndex = (pageIndex - 1) * pageSize < 0 ? 0 : (pageIndex - 1) * pageSize;
+    const currentIndex =
+      (pageIndex - 1) * pageSize < 0 ? 0 : (pageIndex - 1) * pageSize;
     const queryCommodityListSQL = `
       SELECT
         id,
@@ -33,12 +34,12 @@ export class CommodityService {
       ORDER BY
         id DESC
       LIMIT ${currentIndex}, ${pageSize} `;
-      const commodityList: any[] = await sequelize.query(queryCommodityListSQL, {
-        type: Sequelize.QueryTypes.SELECT,
-        raw: true,
-        logging: false,
-      });
-      // 统计数据条数
+    const commodityList: any[] = await sequelize.query(queryCommodityListSQL, {
+      type: Sequelize.QueryTypes.SELECT,
+      raw: true,
+      logging: false,
+    });
+    // 统计数据条数
     const countCommodityListSQL = `
       SELECT
         COUNT(*) AS total
@@ -69,7 +70,13 @@ export class CommodityService {
    * @memberof CommodityService
    */
   async createCommodity(body: any, username: string): Promise<any> {
-    const { columnId = 0, name, description = '', marketPrice = 0, saleMoney = 0, } = body;
+    const {
+      columnId = 0,
+      name,
+      description = '',
+      marketPrice = 0,
+      saleMoney = 0,
+    } = body;
     const createCommoditySQL = `
       INSERT INTO commodity
         (ccolumn_id, commodity_name, commodity_desc, market_price, sale_money, c_by)
@@ -95,12 +102,12 @@ export class CommodityService {
         u_by = '${username}'
       WHERE
         id = ${id} `;
-      const transaction = await sequelize.transaction();
-      await sequelize.query(updateCommoditySQL, { transaction, logging: false });
-      return {
-        code: 200,
-        msg: 'Success',
-      };
+    const transaction = await sequelize.transaction();
+    await sequelize.query(updateCommoditySQL, { transaction, logging: false });
+    return {
+      code: 200,
+      msg: 'Success',
+    };
   }
   async deleteCommodity(body: any) {
     const { id } = body;
