@@ -57,6 +57,7 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+详细文档请看document/Nest.js 从零到壹系列 --- Liar出品.pdf,demo是对《Nest.js 从零到壹系列 --- Liar出品.pdf》的内容进行验证
 ## 三、新增模块
 通过上文，应该熟悉了 NestJS 的设计模式，主要就是 Controller 、 Service 、 Module 共同努力，形成了一个模块。
 - `Controller` : 传统意义上的控制器，提供 api 接口，负责处理路由、中转、验证等一些简洁 的业务；
