@@ -149,6 +149,38 @@ $ nest g pipe validation pipe
 ```cmd
 $ yarn add class-validator class-transformer -S
 ```
+## RBAC
+
+RBAC：基于角色的权限访问控制（Role-Based Access Control），是商业系统中最常见的权限管 理技术之一。在 RBAC 中，权限与角色相关联，用户通过成为适当角色的成员而得到这些角色的权 限。
+
+### 拦截器逻辑编写
+还记得第三篇签发 Token 的时候，有个 role 字段么？那个就是用户角色，下面我们针对 Token 的 role 字段进行展开。先新建文件：
+```cmd
+$ nest g interceptor rbac interceptor
+```
+
+```SQL
+CREATE TABLE `commodity` (
+	`id` int(11) NOT NULL AUTO_INCREMENT COMMENT '商品ID',
+	`ccolumn_id` smallint(6) NOT NULL COMMENT '商品_栏目ID',
+	`commodity_name` varchar(10) NOT NULL COMMENT '商品_名称',
+	`commodity_desc` varchar(20) NOT NULL COMMENT '商品_介绍',
+	`market_price` decimal(7,2) NOT NULL DEFAULT '0.00' COMMENT '市场价',
+	`sale_money` decimal(7,2) NOT NULL DEFAULT '0.00' COMMENT '销售价',
+	`c_by` varchar(24) NOT NULL COMMENT '创建人',
+	`c_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+	`u_by` varchar(24) NOT NULL DEFAULT '0' COMMENT '修改人',
+	`u_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+	PRIMARY KEY (`id`),
+	KEY `idx_ccid` (`ccolumn_id`),
+	KEY `idx_cn` (`commodity_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品表';
+```
+
+## 使用 Guard 守卫控制权限
+```cmd
+$ nest g guard rbac guards
+```
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
